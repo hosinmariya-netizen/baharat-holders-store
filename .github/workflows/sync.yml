@@ -1,0 +1,14 @@
+name: Sync to Hugging Face
+on:
+  push:
+    branches: [main]
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: git push https://hosinmariya-netizen:$HF_TOKEN@huggingface.co/spaces/hosinmariya-netizen/SPACE_NAME main
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
