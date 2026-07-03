@@ -1,6 +1,15 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(
+    page_title="متجر حوامل البهارات",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None
+    }
+)
+
 st.title("متجر حوامل البهارات")
 
 # رابط الملف الذي قمت بنشره (Publish to web) كـ CSV
@@ -17,11 +26,10 @@ try:
     selected_model = st.selectbox("اختر الموديل:", df['الموديل'].tolist())
     product = df[df['الموديل'] == selected_model].iloc[0]
 
-    st.image(product['رابط_الصورة'], use_column_width=True)
+    st.image(product['رابط_الصورة'], use_container_width=True)
     st.subheader(f"السعر: {product['السعر']} دج")
 
     if st.button("طلب المنتج"):
         st.success("تم تأكيد اختيارك!")
 except Exception as e:
     st.error(f"خطأ في تحميل البيانات: {e}")
-    
