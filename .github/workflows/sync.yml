@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - run: git push https://hosinmariya-netizen:$HF_TOKEN@huggingface.co/spaces/hosinmariya-netizen/Baharat_HW main
+      - run: git push --force https://hosinmariya-netizen:$HF_TOKEN@huggingface.co/spaces/hosinmariya-netizen/Baharat_HW main
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
